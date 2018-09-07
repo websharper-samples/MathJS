@@ -2,12 +2,194 @@
 <html>
     <head>
         <meta charset="utf-8" />
-        <title>@sampleName@</title>
-        <link rel="stylesheet" href="Content/@sampleName@.css" />
-        <script src="Content/@sampleName@.head.js"></script>
+        <title>MathJS</title>
+        <link rel="stylesheet" href="Content/MathJS.css" />
+        <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+        <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.indigo-pink.min.css">
+        <style>
+          [ws-template], [ws-children-template] {
+              display: none
+          }
+          body {
+              max-width: 960px;
+              margin: 0 auto;
+          }
+          .panel {
+              margin: 20px;
+              padding: 20px;
+              box-shadow: 2px 2px 5px 2px #eee;
+          }
+          .result {
+              width: auto;
+          }
+        </style>
+        <script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
+        <script src="Content/MathJS.head.js"></script>
     </head>
     <body>
         <div id="main"></div>
-        <script src="Content/@sampleName@.js"></script>
+        <div class="panel" ws-template="BigNumbers">
+            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                <input class="mdl-textfield__input" type="text" id="input1" ws-var="Input1" value="1"/>
+                <label class="mdl-textfield__label" for="input1">First number</label>
+            </div><br/>
+            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                <input class="mdl-textfield__input" type="text" id="input2" ws-var="Input2" value="1" />
+                <label class="mdl-textfield__label" for="input2">Second number</label>
+            </div>
+            <table class="mdl-data-table mdl-table-js-data-table">
+                <thead>
+                    <tr>
+                        <th class="mdl-data-table__cell--non-numeric">Operation</th>
+                        <th>Result</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="mdl-data-table__cell--non-numeric">Addition</td>
+                        <td><p ws-replace="ResultAdd"></p></td>
+                    </tr>
+                    <tr>
+                        <td class="mdl-data-table__cell--non-numeric">Subtraction</td>
+                        <td><p ws-replace="ResultSubtract"></p></td>
+                    </tr>
+                    <tr>
+                        <td class="mdl-data-table__cell--non-numeric">Multiplication</td>
+                        <td><p ws-replace="ResultMultiply"></p></td>
+                    </tr>
+                    <tr>
+                        <td class="mdl-data-table__cell--non-numeric">Divison</td>
+                        <td><p ws-replace="ResultDivide"></p></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div ws-children-template="Differentiation">
+            <div class="panel">
+                <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                    <input class="mdl-textfield__input" type="text" id="formula" ws-var="Formula" value="x^2/(x^9 + x^2) + x^4/2"/>
+                    <label class="mdl-textfield__label" for="formula">Formula</label>
+                </div><br/>
+                <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                    <input class="mdl-textfield__input" type="text" id="derivateBy" ws-var="DerivateBy" value="x" />
+                    <label class="mdl-textfield__label" for="derivateBy">Derivate by</label>
+                </div>
+            </div>
+            <div id="tex" class="panel result" ws-hole="Tex"></div>
+        </div>
+        <div class="panel" ws-template="Vectors">
+            <div class="holder">
+                <div>
+                    First vector: <p ws-replace="Vector1"></p>
+                </div>
+                <div>
+                    Second vector: <p ws-replace="Vector2"></p>
+                </div>
+            </div>
+            <table class="mdl-data-table mdl-table-js-data-table">
+                <thead>
+                    <tr>
+                        <th class="mdl-data-table__cell--non-numeric">Operation</th>
+                        <th>Result</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="mdl-data-table__cell--non-numeric">Addition</td>
+                        <td><p ws-replace="ResultAdd"></p></td>
+                    </tr>
+                    <tr>
+                        <td class="mdl-data-table__cell--non-numeric">Subtraction</td>
+                        <td><p ws-replace="ResultSubtract"></p></td>
+                    </tr>
+                    <tr>
+                        <td class="mdl-data-table__cell--non-numeric">Multiplication</td>
+                        <td><p ws-replace="ResultMultiply"></p></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="panel" ws-template="Matrices">
+            <div class="holder">
+                <div>
+                    First matrix: <p ws-replace="Matrix1"></p>
+                </div>
+                <div>
+                    Second matrix: <p ws-replace="Matrix2"></p>
+                </div>
+            </div>
+            <table class="mdl-data-table mdl-table-js-data-table">
+                <thead>
+                    <tr>
+                        <th class="mdl-data-table__cell--non-numeric">Operation</th>
+                        <th>Result</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="mdl-data-table__cell--non-numeric">Addition</td>
+                        <td><p ws-replace="ResultAdd"></p></td>
+                    </tr>
+                    <tr>
+                        <td class="mdl-data-table__cell--non-numeric">Subtraction</td>
+                        <td><p ws-replace="ResultSubtract"></p></td>
+                    </tr>
+                    <tr>
+                        <td class="mdl-data-table__cell--non-numeric">Multiplication</td>
+                        <td><p ws-replace="ResultMultiply"></p></td>
+                    </tr>
+                    <tr>
+                        <td class="mdl-data-table__cell--non-numeric">Divison</td>
+                        <td><p ws-replace="ResultDivide"></p></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="panel" ws-template="Units">
+            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                <input class="mdl-textfield__input" type="text" id="input1" ws-var="Input1" value="1 cm"/>
+                <label class="mdl-textfield__label" for="input1">First number</label>
+            </div><br/>
+            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                <input class="mdl-textfield__input" type="text" id="input2" ws-var="Input2" value="1 cm" />
+                <label class="mdl-textfield__label" for="input2">Second number</label>
+            </div>
+            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                <input class="mdl-textfield__input" type="text" id="translate" ws-var="Translate" value="m" />
+                <label class="mdl-textfield__label" for="translate">Translate to</label>
+            </div>
+            <table class="mdl-data-table mdl-table-js-data-table">
+                <thead>
+                    <tr>
+                        <th class="mdl-data-table__cell--non-numeric">Operation</th>
+                        <th>Result</th>
+                        <th>Translated</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="mdl-data-table__cell--non-numeric">Addition</td>
+                        <td><p ws-replace="ResultAdd"></p></td>
+                        <td><p ws-replace="TranslatedResultAdd"></p></td>
+                    </tr>
+                    <tr>
+                        <td class="mdl-data-table__cell--non-numeric">Subtraction</td>
+                        <td><p ws-replace="ResultSubtract"></p></td>
+                        <td><p ws-replace="TranslatedResultSubtract"></p></td>
+                    </tr>
+                    <tr>
+                        <td class="mdl-data-table__cell--non-numeric">Multiplication</td>
+                        <td><p ws-replace="ResultMultiply"></p></td>
+                        <td><p ws-replace="TranslatedResultMultiply"></p></td>
+                    </tr>
+                    <tr>
+                        <td class="mdl-data-table__cell--non-numeric">Divison</td>
+                        <td><p ws-replace="ResultDivide"></p></td>
+                        <td><p ws-replace="TranslatedResultDivide"></p></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <script src="Content/MathJS.js"></script>
     </body>
 </html>
